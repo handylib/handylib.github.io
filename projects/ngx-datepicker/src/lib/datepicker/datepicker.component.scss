@@ -1,0 +1,312 @@
+.component-container {
+    position: relative;
+}
+
+.component-absolute {
+    position: absolute;
+    z-index: 9;
+}
+
+ul.datepicker-weeks,
+ul.datepicker-days {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul.datepicker-weeks>li,
+ul.datepicker-days>li {
+    width: 14.2857%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul.datepicker-weeks>li>div,
+ul.datepicker-days>li>div {
+    height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    cursor: pointer;
+    padding-bottom: 100%;
+    position: relative;
+}
+
+ul.datepicker-weeks {
+    border-bottom: 1px solid #ddd;
+}
+
+.datepicker-header {
+    background: #1266f1;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    text-align: center;
+}
+
+.datepicker-header>div {
+    flex: 1;
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    cursor: pointer;
+}
+
+ul.datepicker-days>li:hover>div {
+    background: #ddd;
+}
+
+ul.datepicker-weeks>li>div>span,
+ul.datepicker-days>li>div>span {
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.datepicker-body {
+    width: 100%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.datepicker-footer {
+    padding: 5px;
+}
+
+.datepicker-btn {
+    height: 30px;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    background: #1266f1;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.timepicker-inputs {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.timepicker-input {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 5px;
+    position: relative;
+}
+
+.timepicker-input>button {
+    height: 35px;
+    background: #fff;
+}
+
+.timepicker-input>button,
+.timepicker-input>div {
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    flex: 1;
+}
+
+.timepicker-input>button:hover,
+.timepicker-input>div:hover {
+    background: #ddd;
+}
+
+.timepicker-input:before {
+    content: "";
+    top: -10px;
+}
+
+.timepicker-input:after {
+    top: 10px;
+}
+
+.timepicker-input:last-child:after,
+.timepicker-input:last-child:before {
+    display: none;
+}
+
+.timepicker-input:after,
+.timepicker-input:before {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 3px;
+    background: #1266f1;
+    bottom: 0px;
+    right: 0px;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 100%;
+}
+
+ul.datepicker-months,
+ul.datepicker-years,
+ul.datepicker-hours,
+ul.datepicker-minutes {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul.datepicker-hours>li {
+    width: 33.33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+ul.datepicker-hours>li>div {
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+ul.datepicker-hours>li:hover>div {
+    background: #ddd;
+}
+
+ul.datepicker-minutes>li {
+    width: 12.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+ul.datepicker-minutes>li>div {
+    height: 0;
+    padding-bottom: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+ul.datepicker-minutes>li>div>span {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+ul.datepicker-minutes>li:hover>div {
+    background: #ddd;
+}
+
+ul.datepicker-months>li,
+ul.datepicker-years>li {
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+ul.datepicker-months>li>div,
+ul.datepicker-years>li>div {
+    height: 30px;
+    border-radius: 30px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+ul.datepicker-months>li>div>span,
+ul.datepicker-years>li>div>span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+ul.datepicker-months>li>div:hover,
+ul.datepicker-years>li>div:hover {
+    background: #ddd;
+}
+
+ul.datepicker-months>li>div.active,
+ul.datepicker-days>li>div.active,
+ul.datepicker-years>li>div.active {
+    background: #1266f1;
+    color: #fff;
+}
+
+
+.datepicker-card {
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 7%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+}
+
+.datepicker-input {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #4f4f4f;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: all .2s linear;
+}

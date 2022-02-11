@@ -1,0 +1,14 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-lg-4">
+            <div class="card p-3">
+                <h4 class="mb-3">{{date}}</h4>
+                <datepicker [(ngModel)]="date" [options]="options"></datepicker>
+
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

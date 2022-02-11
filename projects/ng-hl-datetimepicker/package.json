@@ -1,0 +1,25 @@
+{
+  "name": "@handylib/ng-hl-datetimepicker",
+  "version": "0.0.9",
+  "peerDependencies": {
+    "@angular/common": "^13.1.0",
+    "@angular/core": "^13.1.0",
+    "moment": "^2.29.1",
+    "ngx-moment": "^6.0.2"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "allowedNonPeerDependencies": {},
+  "description": "This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.0.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/handylib/ng-hl-datetimepicker.git"
+  },
+  "author": "HandyLib",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/handylib/ng-hl-datetimepicker/issues"
+  },
+  "homepage": "https://github.com/handylib/ng-hl-datetimepicker#readme"
+}

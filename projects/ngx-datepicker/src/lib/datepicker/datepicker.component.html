@@ -1,0 +1,118 @@
+<div class="component-container">
+    <input type="text" [class]="getOptions()?.classes?.input" #input [value]="getInputDate()" (focus)="show=true">
+    <div class="component-absolute {{getOptions()?.classes?.container}}" [style.display]="show==true ? 'block' : 'none'" #calendar [style.width]="getOptions()?.styles?.container?.width">
+        <div class="date-picker" [style.display]="showDatepicker==true ? 'block' : 'none'">
+            <div class="datepicker-header">
+                <div (click)="prevMonth()">{{getOptions()?.icons?.left}}</div>
+                <div (click)="openMonthpicker()">{{getDateLabel()}}</div>
+                <div (click)="nextMonth()">{{getOptions()?.icons?.right}}</div>
+            </div>
+            <div class="datepicker-body">
+                <ul class="datepicker-weeks">
+                    <li *ngFor="let week of getOptions()?.weeks">
+                        <div><span>{{week.substr(0,3)}}</span></div>
+                    </li>
+                </ul>
+                <ul class="datepicker-days">
+                    <li *ngFor="let d of getMonthDates();let i = index">
+                        <div (click)="setDate(d.date)" [style.background]="d.current == false ? '#ddd' : ''" class="{{(d.date.date== date.date && d.date.month == date.month) ? 'active' : ''}}"><span>{{d.date.date}}</span></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="datepicker-footer" *ngIf="date.hasTime">
+                <button class="datepicker-btn" (click)="openTimepicker()">Pick Time</button>
+            </div>
+        </div>
+
+
+        <div class="month-picker" [style.display]="showMonthpicker==true ? 'block' : 'none'">
+            <div class="datepicker-header">
+                <div (click)="openYearpicker()">{{getYearLabel()}}</div>
+            </div>
+            <div class="datepicker-body">
+                <ul class="datepicker-months">
+                    <li *ngFor="let month of getOptions()?.months;let i = index" (click)="setMonth(i+1)">
+                        <div class="{{i== date.month ? 'active' : ''}}">
+                            <span>{{month}}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="month-picker" [style.display]="showYearpicker==true ? 'block' : 'none'">
+            <div class="datepicker-header">
+                <div (click)="setPrevYearRange()">{{getOptions()?.icons?.left}}</div>
+                <div>{{getYearLabel()}}</div>
+                <div (click)="setNextYearRange()">{{getOptions()?.icons?.right}}</div>
+            </div>
+            <div class="datepicker-body">
+                <ul class="datepicker-months">
+                    <li *ngFor="let y of getYearsRange()">
+                        <div class="{{y== date.year ? 'active' : ''}}" (click)="setYear(y)">
+                            <span>{{y}}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="time-picker" [style.display]="showTimepicker==true ? 'block' : 'none'">
+            <div class="datepicker-body">
+                <div class="timepicker-inputs">
+                    <div class="timepicker-input">
+                        <button (click)="nextHour()">{{getOptions()?.icons?.up}}</button>
+                        <div (click)="openHourpicker()">
+                            <span>{{date.hour.h}}</span>
+                        </div>
+                        <button (click)="prevHour()">{{getOptions()?.icons?.down}}</button>
+                    </div>
+                    <div class="timepicker-input">
+                        <button (click)="nextMinute()">{{getOptions()?.icons?.up}}</button>
+                        <div>
+                            <span (click)="openMinutepicker()">{{date.minutes}}</span>
+                        </div>
+                        <button (click)="prevMinute()">{{getOptions()?.icons?.down}}</button>
+                    </div>
+                    <div class="timepicker-input">
+                        <div (click)="toggleAmPm()">
+                            <span>{{date.hour.a}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="datepicker-footer">
+                <button class="datepicker-btn" (click)="openDatepicker()">Pick Date</button>
+            </div>
+        </div>
+
+
+        <div class="hour-picker" [style.display]="showHourpicker==true ? 'block' : 'none'">
+            <div class="datepicker-body">
+                <ul class="datepicker-hours">
+                    <li *ngFor="let h of getArrayOf(12);let i=index">
+                        <div (click)="setHours(i+1)">
+                            <span>{{i+1}}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="hour-picker" [style.display]="showMinutepicker==true ? 'block' : 'none'">
+            <div class="datepicker-body">
+                <ul class="datepicker-minutes">
+                    <li *ngFor="let m of getArrayOf(60);let i=index">
+                        <div (click)="setMinutes(i+1)">
+                            <span>{{i+1}}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,247 @@
+.dtp-container {
+    position: relative;
+}
+
+.dtp-dropdown {
+    position: absolute;
+    background: #fff;
+    left: 0px;
+    top: 100%;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 7%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    z-index: 9;
+    max-width: 300px;
+    width: 100%;
+}
+
+.dtp-calendar-header {
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dtp-calendar-header > .dtp-chevron {
+    height: 40px;
+    width: 50px;
+    border: none;
+}
+
+.dtp-calendar-header > .dtp-mode-label {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.dtp-calendar-month > ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.dtp-calendar-month > ul > li {
+    width: 14.2857%;
+    float: left;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+}
+
+.dtp-calendar-month > ul > li.active {
+    background: #1266f1;
+    color: #fff;
+}
+
+
+.dtp-chevron:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: auto;
+}
+
+.dtp-chevron-left:after {
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 7px solid #000;
+}
+
+.dtp-chevron-right:after {
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid #000;
+}
+
+.dtp-chevron {
+    position: relative;
+}
+
+.dtp-days > li:hover {
+    background: #ddd;
+    cursor: pointer;
+}
+
+ul.dtp-calendar-weeks {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    float: left;
+    background: #dddddd4f;
+}
+
+.dtp-calendar {
+    width: 100%;
+    float: left;
+}
+
+.dtp-timepicker {
+    width: 100%;
+    border-top: 1px solid #ddd;
+    min-height: 130px;
+}
+
+.dtp-timepicker > ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.dtp-timepicker > ul > li {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.dtp-timepicker > ul > li > button {
+    height: 40px;
+    border: none;
+    min-height: 40px;
+    width: 100%;
+    outline: none;
+}
+
+.dtp-timepicker > ul > li > div {
+    height: 100%;
+    display: flex;
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    padding: 0px 5px;
+    position: relative;
+}
+
+.dtp-timepicker > ul > li > div > span {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dtp-timepicker > ul > li>div:before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    border-radius: 100%;
+    background: #000;
+    right: -3px;
+    top: 30px;
+}
+
+.dtp-timepicker > ul > li>div:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    width: 5px;
+    border-radius: 100%;
+    background: #000;
+    right: -3px;
+    bottom: 30px;
+}
+
+.dtp-timepicker > ul > li:last-child >div:before,.dtp-timepicker > ul > li:last-child >div:after {
+    display: none;
+}
+
+.chevron-up:after {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid black;
+}
+
+.chevron-down:after {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #000;
+}
+
+.dtp-calendar-month > ul.dtp-calendar-months > li {
+    width: 33.33%;
+    cursor: pointer;
+    height: 50px;
+}
+
+.dtp-calendar-month > ul.dtp-calendar-months {
+    width: 100%;
+    display: block;
+    float: left;
+}
+
+.dtp-calendar-month > ul.dtp-calendar-months > li:hover {
+    background: #ddd;
+}
+
+.dtp-calendar-month,.dtp-calender-body {
+    width: 100%;
+    float: left;
+}
+
+
+
+.dtp-footer > button {
+    color: #fff;
+    background-color: #1266f1;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    border-radius: 0.25rem;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 10px;
+    line-height: 1;
+    font-weight: 500;
+    border: none;
+}
+
+.dtp-footer {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.dtp-footer > button:last-child {
+    margin-left: auto;
+    background-color: #1266f1;
+}
+
+.dtp-footer > button:first-child {
+    background-color: #f93154;
+}
