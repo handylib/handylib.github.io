@@ -7,6 +7,7 @@
     "build": "ng build",
     "build:datepicker": "ng build --project ngx-datepicker",
     "build:selectpicker": "ng build --project ngx-selectpicker",
+    "build:app": "ng build --project hl-app --output-path ./docs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

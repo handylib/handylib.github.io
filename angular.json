@@ -44,14 +44,14 @@
           "strict": true
         }
       },
-      "root": "projects/hl-app",
+      "root": "docs",
       "sourceRoot": "projects/hl-app/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "../dist/hl-app",
+            "outputPath": "../docs",
             "index": "projects/hl-app/src/index.html",
             "main": "projects/hl-app/src/main.ts",
             "polyfills": "projects/hl-app/src/polyfills.ts",
