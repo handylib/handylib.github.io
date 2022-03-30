@@ -22,8 +22,8 @@
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
     "@eonasdan/tempus-dominus": "^6.0.0-beta1",
+    "@handylib/ngx-datepicker": "^1.0.6",
     "moment": "^2.29.1",
-    "ngx-moment": "^6.0.2",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

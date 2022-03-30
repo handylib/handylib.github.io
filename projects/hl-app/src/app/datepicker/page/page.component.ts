@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Options } from 'projects/ngx-datepicker/src/public-api';
 
 @Component({
   selector: 'app-page',
@@ -10,25 +9,22 @@ export class PageComponent implements OnInit {
 
   constructor() { }
 
-  date: string = "1996-08-14";
-  options: Options = {
-    styles: {
-      container: {
-        width: "300px"
-      }
-    },
-    classes: {
-      container: "card",
-      input: "form-control"
-    },
-    formats: {
-      input: "YYYY-MM-DD",
-      output: "YYYY-MM-DD",
-      preview: "DD MMMM, YYYY"
-    }
-  };
+  datetime: string = "2012-12-12 12:12:12";
+  date: string = "2012-12-12";
+  time: string = "12:12:12";
+  intervalDate: string = "2022-03-01";
+
 
   ngOnInit(): void {
+    var date = 1;
+    var inst = this;
+    setInterval(function () {
+      inst.intervalDate = "2022-03-" + date;
+      date++;
+      if (date >= 31) {
+        date = 1;
+      }
+    }, 1000);
   }
 
 }

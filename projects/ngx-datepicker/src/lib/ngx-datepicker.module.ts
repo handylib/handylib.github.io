@@ -1,46 +1,29 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { DatepickerComponent } from './datepicker/datepicker.component';
+import { NgxDatepickerDirective } from './ngx-datepicker.directive';
+import { NgxDatetimepickerDirective } from './ngx-datetimepicker.directive';
+import { NgxTimepickerDirective } from './ngx-timepicker.directive';
 
 
 
 @NgModule({
   declarations: [
-    DatepickerComponent
+    DatepickerComponent,
+    NgxDatepickerDirective,
+    NgxDatetimepickerDirective,
+    NgxTimepickerDirective
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    DatepickerComponent
+    DatepickerComponent,
+    NgxDatepickerDirective,
+    NgxTimepickerDirective,
+    NgxDatetimepickerDirective
   ]
 })
 export class NgxDatepickerModule { }
 
 
-
-export type Options = {
-  mode?: any,
-  classes?: {
-    container?: any,
-    input?: any
-  },
-  styles?: {
-    container?: {
-      width?: any
-    }
-  },
-  icons?: {
-    left?: any
-    right?: any,
-    up?: any,
-    down?: any
-  },
-  formats?: {
-    preview?: any,
-    input?: any,
-    output?: any
-  },
-  weeks?: any,
-  months?: any
-}
