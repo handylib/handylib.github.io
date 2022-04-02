@@ -41,8 +41,8 @@
                 </ul>
 
                 <ul class="datepicker-dates">
-                    <li *ngFor="let d of getDatesInMonthArray()" class="{{isCurrent(d.formated,'date') ? 'active' : ''}}">
-                        <span (click)="setDate(d.date)">{{d.date}}</span>
+                    <li *ngFor="let d of getDatesInMonthArray();trackBy:trackBy" class="{{isCurrent(d.formated,'date') ? 'active' : ''}}" (click)="setDate(d.date)">
+                        <span>{{d.date}}</span>
                     </li>
                 </ul>
             </div>

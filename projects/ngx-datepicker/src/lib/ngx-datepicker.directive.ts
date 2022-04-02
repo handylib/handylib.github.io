@@ -64,7 +64,7 @@ export class NgxDatepickerDirective implements ControlValueAccessor, OnInit, Aft
     this.eRef.nativeElement.value = value;
   }
 
-  @Input("format") format: string = "YYYY-MM-DD HH:mm:ss";
+  @Input("format") format: string = "YYYY-MM-DD";
 
   onChange = (_: any) => { };
   onTouched = (_: any) => { };

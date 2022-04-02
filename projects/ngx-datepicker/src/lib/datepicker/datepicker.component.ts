@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Inject, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Inject, Input, OnInit, ViewChild } from '@angular/core';
 import moment from 'moment';
 
 import { DOCUMENT } from '@angular/common';
@@ -15,17 +15,6 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     private cdRef: ChangeDetectorRef
   ) { }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    var inst = this;
-    inst.setPosition();
-  }
-
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event: any) {
-    var inst = this;
-    inst.setPosition();
-  }
 
   show: boolean = false;
   @ViewChild("container") container !: ElementRef;
@@ -70,6 +59,10 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
 
   onApply: any = (_v: string) => { }
 
+
+  trackBy(n: number) {
+    return n;
+  }
 
   getDatesInMonthArray() {
     var dates = [];
@@ -143,7 +136,6 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     var directiveRect = inst.element.nativeElement.getBoundingClientRect();
     var containerRect = inst.container.nativeElement.getBoundingClientRect();
     if (window.innerHeight <= directiveRect.height + containerRect.height + directiveRect.y) {
-      console.log("bottom overflow");
       inst.config.position.x = directiveRect.x;
       inst.config.position.y = ((directiveRect.y - containerRect.height) + directiveRect.height) - directiveRect.height;
     } else {
@@ -165,9 +157,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   }
 
   isCurrent(value: any, mode: string) {
-    if (typeof value == "number") {
-      value = value.toString();
-    }
+
     if (mode == "hour") {
       if (value == moment(this.value, this.format).format("h")) {
         return true;
@@ -185,11 +175,11 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
         return true;
       }
     } else if (mode == "month") {
-      if (value.toLowerCase() == moment(this.value, this.format).format("M").toLowerCase()) {
+      if (value.toString().toLowerCase() == moment(this.value, this.format).format("M").toLowerCase()) {
         return true;
       }
     } else if (mode == "year") {
-      if (value.toLowerCase() == moment(this.value, this.format).format("YYYY").toLowerCase()) {
+      if (value.toString().toLowerCase() == moment(this.value, this.format).format("YYYY").toLowerCase()) {
         return true;
       }
     }
@@ -266,6 +256,21 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     inst.element.nativeElement.onfocus = inst.openDatePicker.bind(this);
     inst.element.nativeElement.onclick = inst.openDatePicker.bind(this);
     inst.setPosition();
+
+    if (typeof window !== "undefined") {
+      window.onscroll = function () {
+        inst.setPosition();
+        inst.cdRef.detectChanges();
+      };
+
+      window.onresize = function () {
+        inst.setPosition();
+        inst.cdRef.detectChanges();
+      };
+
+    }
+
+
   }
 
   ngOnInit(): void {
