@@ -11,6 +11,12 @@
                         <button (click)="config.view='yearpicker'" class="{{config.view == 'yearpicker' ? 'active' : ''}}" *ngIf="config.mode == 'date'">{{getFormated('YYYY')}}</button>
                     </div>
                 </div>
+                <div class="datepicker-header-label-date" *ngIf="config.mode == 'month'">
+                    <button class="active">{{getFormated('MMMM')}}</button>
+                </div>
+                <div class="datepicker-header-label-date" *ngIf="config.mode == 'year'">
+                    <button class="active">{{getFormated('YYYY')}}</button>
+                </div>
                 <div class="datepicker-header-label-time" *ngIf="config.mode == 'time' || config.mode == 'datetime'" [style.paddingTop.px]="config.mode == 'datetime' ? 29 : 0">
                     <button (click)="config.view='timepicker';config.timepicker='hour'" class="{{config.view == 'timepicker' && config.timepicker == 'hour' ? 'active' : ''}}">{{getFormated('hh')}}</button>
                     <span>:</span>
@@ -26,7 +32,7 @@
                 <div>{{getFormated('MMMM DD')}}</div>
                 <button (click)="setNextMonth()">{{config.icons.right}}</button>
             </div>
-            <div class="datepicker-header-action" *ngIf="(config.mode == 'date' || config.mode == 'datetime') && config.view == 'yearpicker'">
+            <div class="datepicker-header-action" *ngIf="(config.mode == 'date' || config.mode == 'datetime' || config.mode == 'year') && config.view == 'yearpicker'">
                 <button (click)="setPrevYearRange()">{{config.icons.left}}</button>
                 <div>{{config.startYear - 8}} - {{config.startYear + 7}}</div>
                 <button (click)="setNextYearRange()">{{config.icons.right}}</button>
@@ -60,17 +66,17 @@
                     </li>
                 </ul>
             </div>
-            <div class="picker" *ngIf="config.view == 'monthpicker'">
+            <div class="picker" *ngIf="config.view == 'monthpicker' || config.mode == 'month'">
                 <ul class="picker-col-2">
                     <li *ngFor="let month of config.months;let m = index">
                         <button (click)="setMonth(m);config.view = 'datepicker'" class="{{isCurrent(m+1 + '','month') ? 'active' : ''}}">{{month}}</button>
                     </li>
                 </ul>
             </div>
-            <div class="picker" *ngIf="config.view == 'yearpicker'">
+            <div class="picker" *ngIf="config.view == 'yearpicker'  || config.mode == 'year'">
                 <ul class="picker-col-4">
                     <li *ngFor="let year of getYearsRange()">
-                        <button class="{{isCurrent(year,'year') ? 'active' : ''}}" (click)="setYear(year);config.view = 'datepicker'">{{year}}</button>
+                        <button class="{{isCurrent(year,'year') ? 'active' : ''}}" (click)="setYear(year);config.view = config.mode == 'year' ? 'yearpicker' : 'datepicker'">{{year}}</button>
                     </li>
                 </ul>
             </div>

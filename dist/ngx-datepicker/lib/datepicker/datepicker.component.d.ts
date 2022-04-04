@@ -4,8 +4,6 @@ export declare class DatepickerComponent implements OnInit, AfterViewInit {
     private document;
     private cdRef;
     constructor(document: Document, cdRef: ChangeDetectorRef);
-    onResize(event: any): void;
-    onScroll(event: any): void;
     show: boolean;
     container: ElementRef;
     element: ElementRef;
@@ -32,6 +30,7 @@ export declare class DatepickerComponent implements OnInit, AfterViewInit {
     get value(): string;
     set value(value: string);
     onApply: any;
+    trackBy(n: number): number;
     getDatesInMonthArray(): {
         date: string;
         formated: string;

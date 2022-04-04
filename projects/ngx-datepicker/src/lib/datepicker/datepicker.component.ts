@@ -138,6 +138,9 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     if (window.innerHeight <= directiveRect.height + containerRect.height + directiveRect.y) {
       inst.config.position.x = directiveRect.x;
       inst.config.position.y = ((directiveRect.y - containerRect.height) + directiveRect.height) - directiveRect.height;
+    } else if (window.innerWidth <= directiveRect.width + containerRect.width + directiveRect.x) {
+      inst.config.position.y = directiveRect.y + directiveRect.height;
+      inst.config.position.x = ((directiveRect.x - containerRect.width) + directiveRect.width);
     } else {
       inst.config.position.x = directiveRect.x;
       inst.config.position.y = directiveRect.y + directiveRect.height;
