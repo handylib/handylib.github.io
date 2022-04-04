@@ -1,24 +1,137 @@
-# NgxDatepicker
+# Handylib ngx-datepicker
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.0.
+SIMPLE AND COOL LOOKING DATEPICKER FOR ANGULAR 13+
 
-## Code scaffolding
 
-Run `ng generate component component-name --project ngx-datepicker` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-datepicker`.
-> Note: Don't forget to add `--project ngx-datepicker` or else it will be added to the default project in your `angular.json` file. 
 
-## Build
+## Install
 
-Run `ng build ngx-datepicker` to build the project. The build artifacts will be stored in the `dist/` directory.
+`momentjs` is a peer dependency and must also be installed
 
-## Publishing
+```sh
+npm i @handylib/ngx-datepicker moment
+```
 
-After building your library with `ng build ngx-datepicker`, go to the dist folder `cd dist/ngx-datepicker` and run `npm publish`.
+Now import the `NgxDatepickerModule` to your module
 
-## Running unit tests
+```ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgxDatepickerModule } from '@handylib/ngx-datepicker';
+import { FormsModule } from '@angular/forms';
 
-Run `ng test ngx-datepicker` to execute the unit tests via [Karma](https://karma-runner.github.io).
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
-## Further help
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    NgxDatepickerModule,
+    FormsModule,
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+
+Make sure you have also loaded `FormsModule` along with `NgxDatepickerModule` otherwise it will throw error cannot bind ngModel since its not known property of input or any element.
+
+To you any type of picker you just have to add directive to that element
+
+
+## DATETIME, DATE, MONTH, YEAR PICKER DIRECTIVES
+
+| Directives |    |
+| -------------------- | --------- |
+| `datetimepicker`               | To pick Date and Time   |
+| `datepicker`                | To pick only Date       |
+| `timepicker`               | To pick only Time      |
+| `monthpicker`               | To pick only month |
+| `yearpicker`              | To pick only year   |
+
+
+
+
+
+add any  directive to any input or element for example `datetimepicker`
+
+```html
+<input type="text" datetimepicker placeholder="select date & time" [(ngModel)]="myDateTime" >
+```
+
+default date and time format is "YYYY-MM-DD HH:mm:ss" which is same as mysql default datetime format.
+
+To change format just give your format to `[format]` input.
+
+```html
+<input type="text" datetimepicker [format]="'DD MMMM, YYYY hh:mm A'" placeholder="select date & time" [(ngModel)]="myDateTime" >
+```
+
+output `4 April, 2022 12:45 AM`
+
+
+
+
+
+## DATE AND TIME 
+
+![](https://raw.githubusercontent.com/handylib/handylib.github.io/master/projects/hl-app/src/assets/image/datetime.png)
+
+```html
+<input type="text" datetimepicker placeholder="select date & time" [(ngModel)]="myDateTime" >
+```
+
+## DATE ONLY 
+
+![](https://raw.githubusercontent.com/handylib/handylib.github.io/master/projects/hl-app/src/assets/image/date.png)
+
+```html
+<input type="text" datepicker placeholder="select a date" [(ngModel)]="myDate" >
+```
+
+## TIME ONLY 
+
+![](https://raw.githubusercontent.com/handylib/handylib.github.io/master/projects/hl-app/src/assets/image/time.png)
+
+```html
+<input type="text" timepicker placeholder="select time" [(ngModel)]="myTime" >
+```
+
+## MONTH ONLY 
+
+![](https://raw.githubusercontent.com/handylib/handylib.github.io/master/projects/hl-app/src/assets/image/month.png)
+
+```html
+<input type="text" monthpicker placeholder="select month" [(ngModel)]="myMonth" >
+```
+
+
+## YEAR  ONLY 
+
+![](https://raw.githubusercontent.com/handylib/handylib.github.io/master/projects/hl-app/src/assets/image/year.png)
+
+```html
+<input type="text" yearpicker placeholder="select year" [(ngModel)]="myYear" >
+```
+
+
+
+| NOT REQUIRED    
+| --------------------
+| `Angular Material`               
+| `Angular CDK`                
+| `Jquery`               
+| `Bootstrap`               
+
+
+For more information visit https://handylib.github.io/
+
+Any issues or bugs or  source code  - https://github.com/handylib/handylib.github.io
+
+
