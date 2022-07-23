@@ -31,6 +31,7 @@ export declare class DatepickerComponent implements OnInit, AfterViewInit {
     set value(value: string);
     onApply: any;
     trackBy(n: number): number;
+    getPrefixDays(): any[];
     getDatesInMonthArray(): {
         date: string;
         formated: string;

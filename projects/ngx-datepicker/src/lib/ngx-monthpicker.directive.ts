@@ -58,10 +58,12 @@ export class NgxMonthpickerDirective implements ControlValueAccessor, OnInit, Af
   }
 
   set value(value: string) {
-    this._value = value;
-    this.onChange(this.value);
-    this.onTouched(this.value);
-    this.eRef.nativeElement.value = value;
+    if (typeof value !== "undefined" && value !== null) {
+      this._value = value;
+      this.onChange(this.value);
+      this.onTouched(this.value);
+      this.eRef.nativeElement.value = value;
+    }
   }
 
   @Input("format") format: string = "MM";

@@ -218,6 +218,8 @@ ul.datepicker-dates>li.active>span {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    max-height: 250px;
+    overflow: auto;
 }
 
 ul.picker-col-2>li {

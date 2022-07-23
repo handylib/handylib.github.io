@@ -48,7 +48,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   }
 
   set value(value: string) {
-    if (value !== "" && value !== null) {
+    if (value !== "" && value !== null && typeof value !== "undefined") {
       if (moment(value, this.format).isValid()) {
         this._value = value;
       } else {
@@ -62,6 +62,12 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
 
   trackBy(n: number) {
     return n;
+  }
+
+  getPrefixDays() {
+    var date = moment(this.value, this.format).startOf('month');
+    var day = Number(date.format("d"));
+    return new Array(day);
   }
 
   getDatesInMonthArray() {
@@ -135,6 +141,18 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     var inst = this;
     var directiveRect = inst.element.nativeElement.getBoundingClientRect();
     var containerRect = inst.container.nativeElement.getBoundingClientRect();
+
+
+    if (window.innerWidth <= 600 || window.innerHeight <= 600) {
+      inst.config.position.x = (window.innerWidth - containerRect.width) / 2;
+      inst.config.position.y = (window.innerHeight - containerRect.height) / 2;
+      inst.cdRef.detectChanges();
+      return {
+        container: containerRect,
+        directive: directiveRect
+      };
+    }
+
     if (window.innerHeight <= directiveRect.height + containerRect.height + directiveRect.y) {
       inst.config.position.x = directiveRect.x;
       inst.config.position.y = ((directiveRect.y - containerRect.height) + directiveRect.height) - directiveRect.height;

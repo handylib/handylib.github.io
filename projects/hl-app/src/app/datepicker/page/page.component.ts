@@ -17,6 +17,7 @@ export class PageComponent implements OnInit {
   year: any = new Date().getFullYear();
 
 
+  form: any = {};
   ngOnInit(): void {
     var date = 1;
     var inst = this;
