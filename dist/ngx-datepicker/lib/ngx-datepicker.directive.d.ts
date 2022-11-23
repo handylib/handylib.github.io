@@ -22,5 +22,5 @@ export declare class NgxDatepickerDirective implements ControlValueAccessor, OnI
     registerOnChange(fn: any): void;
     registerOnTouched(fn: any): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<NgxDatepickerDirective, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<NgxDatepickerDirective, "[datepicker]", never, { "format": "format"; }, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NgxDatepickerDirective, "[datepicker]", never, { "format": "format"; }, {}, never, never, false>;
 }

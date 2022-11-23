@@ -22,5 +22,5 @@ export declare class NgxMonthpickerDirective implements ControlValueAccessor, On
     registerOnChange(fn: any): void;
     registerOnTouched(fn: any): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<NgxMonthpickerDirective, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<NgxMonthpickerDirective, "[monthpicker]", never, { "format": "format"; }, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NgxMonthpickerDirective, "[monthpicker]", never, { "format": "format"; }, {}, never, never, false>;
 }

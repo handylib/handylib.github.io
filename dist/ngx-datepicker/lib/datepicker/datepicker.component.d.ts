@@ -64,5 +64,5 @@ export declare class DatepickerComponent implements OnInit, AfterViewInit {
     ngAfterViewInit(): void;
     ngOnInit(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<DatepickerComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<DatepickerComponent, "datepicker", never, { "element": "element"; "format": "format"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<DatepickerComponent, "datepicker", never, { "element": "element"; "format": "format"; }, {}, never, never, false>;
 }
