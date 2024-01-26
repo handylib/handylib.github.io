@@ -60,15 +60,15 @@ export class NgxMonthpickerDirective {
         this.onTouched = fn;
     }
 }
-NgxMonthpickerDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.1.0", ngImport: i0, type: NgxMonthpickerDirective, deps: [{ token: i0.ViewContainerRef }, { token: i0.ElementRef }, { token: i1.NgxDatepickerService }], target: i0.ɵɵFactoryTarget.Directive });
-NgxMonthpickerDirective.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "14.1.0", type: NgxMonthpickerDirective, selector: "[monthpicker]", inputs: { format: "format" }, providers: [
+NgxMonthpickerDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.1", ngImport: i0, type: NgxMonthpickerDirective, deps: [{ token: i0.ViewContainerRef }, { token: i0.ElementRef }, { token: i1.NgxDatepickerService }], target: i0.ɵɵFactoryTarget.Directive });
+NgxMonthpickerDirective.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "15.0.1", type: NgxMonthpickerDirective, selector: "[monthpicker]", inputs: { format: "format" }, providers: [
         {
             provide: NG_VALUE_ACCESSOR,
             useExisting: forwardRef(() => NgxMonthpickerDirective),
             multi: true
         }
     ], ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.0", ngImport: i0, type: NgxMonthpickerDirective, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.1", ngImport: i0, type: NgxMonthpickerDirective, decorators: [{
             type: Directive,
             args: [{
                     selector: '[monthpicker]',

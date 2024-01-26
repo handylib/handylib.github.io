@@ -140,37 +140,6 @@
         }
       }
     },
-    "ngx-tempus-dominus-datetimepicker": {
-      "projectType": "library",
-      "root": "projects/ngx-tempus-dominus-datetimepicker",
-      "sourceRoot": "projects/ngx-tempus-dominus-datetimepicker/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/ngx-tempus-dominus-datetimepicker/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ngx-tempus-dominus-datetimepicker/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/ngx-tempus-dominus-datetimepicker/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ngx-tempus-dominus-datetimepicker/src/test.ts",
-            "tsConfig": "projects/ngx-tempus-dominus-datetimepicker/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-tempus-dominus-datetimepicker/karma.conf.js"
-          }
-        }
-      }
-    },
     "ngx-datepicker": {
       "projectType": "library",
       "root": "projects/ngx-datepicker",

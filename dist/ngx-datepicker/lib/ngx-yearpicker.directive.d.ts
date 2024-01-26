@@ -22,5 +22,5 @@ export declare class NgxYearpickerDirective implements ControlValueAccessor, OnI
     registerOnChange(fn: any): void;
     registerOnTouched(fn: any): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<NgxYearpickerDirective, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<NgxYearpickerDirective, "[yearpicker]", never, { "format": "format"; }, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NgxYearpickerDirective, "[yearpicker]", never, { "format": "format"; }, {}, never, never, false, never>;
 }

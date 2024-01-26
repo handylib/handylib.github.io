@@ -60,15 +60,15 @@ export class NgxDatetimepickerDirective {
         this.onTouched = fn;
     }
 }
-NgxDatetimepickerDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.1.0", ngImport: i0, type: NgxDatetimepickerDirective, deps: [{ token: i0.ViewContainerRef }, { token: i0.ElementRef }, { token: i1.NgxDatepickerService }], target: i0.ɵɵFactoryTarget.Directive });
-NgxDatetimepickerDirective.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "14.1.0", type: NgxDatetimepickerDirective, selector: "[datetimepicker]", inputs: { format: "format" }, providers: [
+NgxDatetimepickerDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.1", ngImport: i0, type: NgxDatetimepickerDirective, deps: [{ token: i0.ViewContainerRef }, { token: i0.ElementRef }, { token: i1.NgxDatepickerService }], target: i0.ɵɵFactoryTarget.Directive });
+NgxDatetimepickerDirective.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "15.0.1", type: NgxDatetimepickerDirective, selector: "[datetimepicker]", inputs: { format: "format" }, providers: [
         {
             provide: NG_VALUE_ACCESSOR,
             useExisting: forwardRef(() => NgxDatetimepickerDirective),
             multi: true
         }
     ], ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.0", ngImport: i0, type: NgxDatetimepickerDirective, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.1", ngImport: i0, type: NgxDatetimepickerDirective, decorators: [{
             type: Directive,
             args: [{
                     selector: '[datetimepicker]',

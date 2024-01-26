@@ -22,5 +22,5 @@ export declare class NgxTimepickerDirective implements ControlValueAccessor, OnI
     registerOnChange(fn: any): void;
     registerOnTouched(fn: any): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<NgxTimepickerDirective, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<NgxTimepickerDirective, "[timepicker]", never, { "format": "format"; }, {}, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NgxTimepickerDirective, "[timepicker]", never, { "format": "format"; }, {}, never, never, false, never>;
 }

@@ -60,15 +60,15 @@ export class NgxTimepickerDirective {
         this.onTouched = fn;
     }
 }
-NgxTimepickerDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.1.0", ngImport: i0, type: NgxTimepickerDirective, deps: [{ token: i0.ViewContainerRef }, { token: i0.ElementRef }, { token: i1.NgxDatepickerService }], target: i0.ɵɵFactoryTarget.Directive });
-NgxTimepickerDirective.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "14.1.0", type: NgxTimepickerDirective, selector: "[timepicker]", inputs: { format: "format" }, providers: [
+NgxTimepickerDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.1", ngImport: i0, type: NgxTimepickerDirective, deps: [{ token: i0.ViewContainerRef }, { token: i0.ElementRef }, { token: i1.NgxDatepickerService }], target: i0.ɵɵFactoryTarget.Directive });
+NgxTimepickerDirective.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "15.0.1", type: NgxTimepickerDirective, selector: "[timepicker]", inputs: { format: "format" }, providers: [
         {
             provide: NG_VALUE_ACCESSOR,
             useExisting: forwardRef(() => NgxTimepickerDirective),
             multi: true
         }
     ], ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.0", ngImport: i0, type: NgxTimepickerDirective, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.1", ngImport: i0, type: NgxTimepickerDirective, decorators: [{
             type: Directive,
             args: [{
                     selector: '[timepicker]',

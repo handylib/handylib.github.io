@@ -9,8 +9,8 @@ import { NgxYearpickerDirective } from './ngx-yearpicker.directive';
 import * as i0 from "@angular/core";
 export class NgxDatepickerModule {
 }
-NgxDatepickerModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.1.0", ngImport: i0, type: NgxDatepickerModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-NgxDatepickerModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "14.1.0", ngImport: i0, type: NgxDatepickerModule, declarations: [DatepickerComponent,
+NgxDatepickerModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.0.1", ngImport: i0, type: NgxDatepickerModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+NgxDatepickerModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "15.0.1", ngImport: i0, type: NgxDatepickerModule, declarations: [DatepickerComponent,
         NgxDatepickerDirective,
         NgxDatetimepickerDirective,
         NgxTimepickerDirective,
@@ -21,8 +21,8 @@ NgxDatepickerModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", ver
         NgxDatetimepickerDirective,
         NgxMonthpickerDirective,
         NgxYearpickerDirective] });
-NgxDatepickerModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.1.0", ngImport: i0, type: NgxDatepickerModule, imports: [CommonModule] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.1.0", ngImport: i0, type: NgxDatepickerModule, decorators: [{
+NgxDatepickerModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "15.0.1", ngImport: i0, type: NgxDatepickerModule, imports: [CommonModule] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.0.1", ngImport: i0, type: NgxDatepickerModule, decorators: [{
             type: NgModule,
             args: [{
                     declarations: [
