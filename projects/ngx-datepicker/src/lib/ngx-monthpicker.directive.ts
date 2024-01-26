@@ -1,7 +1,6 @@
 import { AfterViewInit, Directive, ElementRef, forwardRef, Input, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DatepickerComponent } from './datepicker/datepicker.component';
-import { NgxDatepickerService } from './ngx-datepicker.service';
 
 @Directive({
   selector: '[monthpicker]',
@@ -17,7 +16,6 @@ export class NgxMonthpickerDirective implements ControlValueAccessor, OnInit, Af
   constructor(
     private cRef: ViewContainerRef,
     private eRef: ElementRef,
-    private Service: NgxDatepickerService
   ) { }
 
 
@@ -31,19 +29,18 @@ export class NgxMonthpickerDirective implements ControlValueAccessor, OnInit, Af
 
 
   ngAfterViewInit(): void {
-    var inst = this;
-    inst.cRef.clear();
-    inst.component = this.cRef.createComponent(DatepickerComponent);
-    inst.initiated = true;
-    inst.component.instance.value = inst.value;
-    inst.component.instance.element = this.eRef;
-    inst.component.instance.format = inst.format;
-    inst.component.instance.config.mode = "month";
-    inst.component.instance.onApply = function (value: string) {
-      inst.value = value;
-      inst.component.changeDetectorRef.detectChanges();
+    this.cRef.clear();
+    this.component = this.cRef.createComponent(DatepickerComponent);
+    this.initiated = true;
+    this.component.instance.value = this.value;
+    this.component.instance.element = this.eRef;
+    this.component.instance.format = this.format;
+    this.component.instance.config.mode = "month";
+    this.component.instance.onApply =  (value: string)=>{
+      this.value = value;
+      this.component.changeDetectorRef.detectChanges();
     }
-    inst.component.changeDetectorRef.detectChanges();
+    this.component.changeDetectorRef.detectChanges();
   }
 
 

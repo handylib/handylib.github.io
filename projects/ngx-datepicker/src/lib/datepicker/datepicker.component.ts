@@ -20,7 +20,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   @ViewChild("container") container !: ElementRef;
   @Input("element") element !: ElementRef;
   @Input("format") format: string = "YYYY-MM-DD HH:mm:ss";
-
+  @Input('disableBackSelection')
 
   config = {
     mode: "datetime",//time, datetime,date
@@ -155,8 +155,6 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
 
 
     if (window.innerHeight <= directiveRect.height + containerRect.height + directiveRect.y) {
-      // inst.config.position.x = directiveRect.x;
-      // inst.config.position.y = ((directiveRect.y - containerRect.height) + directiveRect.height) - directiveRect.height;
 
       inst.config.position.x = (window.innerWidth - containerRect.width) / 2;
       inst.config.position.y = (window.innerHeight - containerRect.height) / 2;

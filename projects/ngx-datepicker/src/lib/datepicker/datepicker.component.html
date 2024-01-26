@@ -65,7 +65,7 @@
                 <span *ngIf="config.timepicker == 'minute'">Select minute</span>
                 <ul class="picker-col-6" *ngIf="config.timepicker == 'minute'">
                     <li *ngFor="let n of getArrayOf(60);let m = index">
-                        <button class="{{isCurrent(m+1,'minute') ? 'active' : ''}}" (click)="setMinute(m+1)">{{m+1}}</button>
+                        <button class="{{isCurrent(m,'minute') ? 'active' : ''}}" (click)="setMinute(m)">{{m}}</button>
                     </li>
                 </ul>
             </div>

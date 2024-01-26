@@ -6,37 +6,6 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-hl-datetimepicker": {
-      "projectType": "library",
-      "root": "projects/ng-hl-datetimepicker",
-      "sourceRoot": "projects/ng-hl-datetimepicker/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/ng-hl-datetimepicker/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ng-hl-datetimepicker/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/ng-hl-datetimepicker/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ng-hl-datetimepicker/src/test.ts",
-            "tsConfig": "projects/ng-hl-datetimepicker/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-hl-datetimepicker/karma.conf.js"
-          }
-        }
-      }
-    },
     "hl-app": {
       "projectType": "application",
       "schematics": {
@@ -106,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "hl-app:build:production"
+              "buildTarget": "hl-app:build:production"
             },
             "development": {
-              "browserTarget": "hl-app:build:development"
+              "buildTarget": "hl-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -117,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "hl-app:build"
+            "buildTarget": "hl-app:build"
           }
         },
         "test": {
@@ -167,37 +136,6 @@
             "main": "projects/ngx-datepicker/src/test.ts",
             "tsConfig": "projects/ngx-datepicker/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-datepicker/karma.conf.js"
-          }
-        }
-      }
-    },
-    "ngx-selectpicker": {
-      "projectType": "library",
-      "root": "projects/ngx-selectpicker",
-      "sourceRoot": "projects/ngx-selectpicker/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/ngx-selectpicker/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ngx-selectpicker/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/ngx-selectpicker/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ngx-selectpicker/src/test.ts",
-            "tsConfig": "projects/ngx-selectpicker/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-selectpicker/karma.conf.js"
           }
         }
       }

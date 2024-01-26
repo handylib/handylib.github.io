@@ -14,7 +14,7 @@
                     <strong class="m-0">Date & Time Picker</strong>
                 </div>
                 <div class="card-body">
-                    <input type="text" datetimepicker [(ngModel)]="datetime" class="form-control form-control-lg">
+                    <input type="text" datetimepicker [(ngModel)]="datetime" class="form-control form-control-lg" [format]="'YYYY-MM-DD LT'">
                 </div>
                 <div class="card-footer">
                     <a routerLink="/datepicker/datetime"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
@@ -40,7 +40,7 @@
                     <strong class="m-0">Time Picker only</strong>
                 </div>
                 <div class="card-body">
-                    <input type="text" timepicker [(ngModel)]="time" class="form-control form-control-lg">
+                    <input type="text" timepicker [(ngModel)]="time" class="form-control form-control-lg" [format]="'LT'">
                 </div>
                 <div class="card-footer">
                     <a routerLink="/datepicker/time"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
@@ -53,7 +53,7 @@
                     <strong class="m-0">Month Picker</strong>
                 </div>
                 <div class="card-body">
-                    <input type="text" monthpicker [(ngModel)]="datetime" class="form-control form-control-lg">
+                    <input type="text" monthpicker [(ngModel)]="month" [format]="'MMMM'" class="form-control form-control-lg">
                 </div>
                 <div class="card-footer">
                     <a routerLink="/datepicker/month"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
@@ -66,7 +66,7 @@
                     <strong class="m-0">Year Picker</strong>
                 </div>
                 <div class="card-body">
-                    <input type="text" yearpicker [(ngModel)]="datetime" class="form-control form-control-lg">
+                    <input type="text" yearpicker [(ngModel)]="year" class="form-control form-control-lg">
                 </div>
                 <div class="card-footer">
                     <a routerLink="/datepicker/year"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>

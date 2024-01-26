@@ -3,6 +3,12 @@
   "version": "1.1.7",
   "allowedNonPeerDependencies": {},
   "description": "This libarary provides a datepicker for angular",
+  "dependencies": {
+    "moment": "*",
+    "@angular/common" : "*",
+    "@angular/core" : "*",
+    "tslib" : "*"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/handylib/hl-datetimepicker.git"
