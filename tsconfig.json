@@ -1,4 +1,3 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -14,21 +13,9 @@
     "esModuleInterop": true,
     "sourceMap": true,
     "paths": {
-      "ng-hl-datetimepicker": [
-        "dist/ng-hl-datetimepicker/ng-hl-datetimepicker",
-        "dist/ng-hl-datetimepicker"
-      ],
       "ngx-datepicker": [
         "dist/ngx-datepicker/ngx-datepicker",
         "dist/ngx-datepicker"
-      ],
-      "ngx-selectpicker": [
-        "dist/ngx-selectpicker/ngx-selectpicker",
-        "dist/ngx-selectpicker"
-      ],
-      "ngx-tempus-dominus-datetimepicker": [
-        "dist/ngx-tempus-dominus-datetimepicker/ngx-tempus-dominus-datetimepicker",
-        "dist/ngx-tempus-dominus-datetimepicker"
       ]
     },
     "declaration": false,
