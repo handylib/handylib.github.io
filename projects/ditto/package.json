@@ -1,6 +1,6 @@
 {
   "name": "@handylib/ditto",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "peerDependencies": {
     "@angular/common": "*",
     "@angular/core": "*",

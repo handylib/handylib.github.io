@@ -161,7 +161,10 @@ export class DittoDirective implements ControlValueAccessor, OnInit, AfterViewIn
       if (this.initiated == true) {
         this.component.instance.value = value;
         if(this.picker == 'year' || this.picker == 'datetime' || this.picker == 'date'){
-          this.component.instance.config.startYear = Number(moment(this._value,this.format).format('YYYY'));
+         var startYear  = Number(moment(this._value,this.format).format('YYYY'));
+         if(!isNaN(startYear)){
+          this.component.instance.config.startYear = startYear;
+         }
         }
         this.component.changeDetectorRef.detectChanges();
       }

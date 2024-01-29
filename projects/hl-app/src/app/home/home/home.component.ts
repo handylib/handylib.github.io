@@ -9,7 +9,8 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
-
+  blankValue : string = "";
+  undefinedValue : any;
 
 
   datetime: string =  moment().format('YYYY-MM-DD LT');

@@ -5,6 +5,36 @@
         <div class="col-lg-12">
             <h1>DITTO PICKER</h1>
         </div>
+        <div class="col-lg-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <strong class="m-0">Blank Input Date & Time Picker</strong>
+                </div>
+                <div class="card-body">
+                    <input type="text" ditto  [(ngModel)]="blankValue" class="form-control form-control-lg" [picker]="'datetime'" [format]="'YYYY-MM-DD LT'">
+                </div>
+                <div class="card-footer">
+                    <a routerLink="/datepicker/datetime"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <strong class="m-0">Blank Input Duration Picker</strong>
+                </div>
+                <div class="card-body">
+                    <input type="text" ditto  [(ngModel)]="blankValue" class="form-control form-control-lg" [picker]="'duration'">
+                </div>
+                <div class="card-footer">
+                    <a routerLink="/datepicker/datetime"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
+                </div>
+            </div>
+        </div>
+
+
         <div class="col-lg-4">
             <div class="card mb-3">
                 <div class="card-header">
