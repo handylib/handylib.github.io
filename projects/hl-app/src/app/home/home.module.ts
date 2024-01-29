@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
 import { ShareModule } from '../share/share.module';
-import { NgxDatepickerModule } from 'projects/ngx-datepicker/src/public-api';
 import { FormsModule } from '@angular/forms';
+import { DittoModule } from 'projects/ditto/src/public-api';
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     FormsModule,
-    NgxDatepickerModule,
+    DittoModule,
     ShareModule,
     CommonModule,
     HomeRoutingModule

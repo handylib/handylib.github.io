@@ -13,6 +13,7 @@
     max-width: 300px;
     z-index: 999999;
     position: fixed;
+    user-select: none;
 }
 
 .datepicker-container {
@@ -100,12 +101,16 @@ ul.datepicker-dates {
 
 ul.datepicker-dates>li {
     width: 14.28%;
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
+    display: block;
     font-size: 12px;
     position: relative;
     padding-top: 14.28%;
+    float: left;
+}
+
+ul.datepicker-dates>li.disabled, .picker .disabled ,.picker .disabled button:hover{
+    cursor: not-allowed;
+    background: #b4b4b4;
 }
 
 ul.datepicker-dates>li>span {
@@ -164,7 +169,8 @@ ul.datepicker-dates>li.active>span {
 
 
 .datepicker-header-label button.active {
-    opacity: 1
+    opacity: 1;
+    color: #FFEB3B;
 }
 
 .datepicker-header-label button:hover {
@@ -276,4 +282,57 @@ ul.picker-col-6>li {
 .picker>ul>li>button.active {
     background: #3f51b5;
     color: #fff;
+}
+
+
+.picker {
+    position: relative;
+}
+
+.disabled-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 0px;
+    color: #fff;
+    background: #00000091;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.1s all ease;
+}
+
+
+.disabled-mask > button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    font-size: 20px;
+    padding: 0px;
+    background: transparent;
+    outline: none;
+}
+
+
+
+.disabled-mask > small{
+    font-size: 11px;
+}
+
+.disabled-mask > span{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.disabled-mask.show {
+    visibility: visible;
+    opacity: 1;
 }

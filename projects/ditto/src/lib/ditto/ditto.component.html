@@ -1,0 +1,148 @@
+<div class="datepicker-overlay" (click)="closeDatePicker()" *ngIf="show"></div>
+<div #container class="datepicker-fixed" [style.top.px]="config.position.y" [style.left.px]="config.position.x" (click)="setPosition()">
+    <div class="datepicker-container" *ngIf="show">
+
+        <div class="disabled-mask {{showErrors ? 'show' : ''}}">
+            <button (click)="showErrors = false">&times;</button>
+            <small>{{getDisableMaskLabel().label}}</small>
+            <span>{{getDisableMaskLabel().range}}</span>
+        </div>
+
+        <div class="datepicker-header">
+            <div class="datepicker-header-label">
+                <div class="datepicker-header-label-date" *ngIf="picker == 'date' || picker == 'datetime'">
+                    <button (click)="view='year'" class="{{view == 'year' ? 'active' : ''}}" *ngIf="picker == 'datetime'">{{getFormated('YYYY')}}</button>
+                    <div>
+                        <button (click)="view='month'" class="{{view == 'month' ? 'active' : ''}}">{{getFormated('MMM')}}</button>
+                        <button (click)="view='date'" class="{{view == 'date' ? 'active' : ''}}">{{getFormated('DD')}} <span *ngIf="picker == 'date'">, </span></button>
+                        <button (click)="view='year'" class="{{view == 'year' ? 'active' : ''}}" *ngIf="picker == 'date'">{{getFormated('YYYY')}}</button>
+                    </div>
+                </div>
+                <div class="datepicker-header-label-date" *ngIf="picker == 'month'">
+                    <button class="active">{{getFormated('MMMM')}}</button>
+                </div>
+                <div class="datepicker-header-label-date" *ngIf="picker == 'year'">
+                    <button class="active">{{getFormated('YYYY')}}</button>
+                </div>
+                <div class="datepicker-header-label-time" *ngIf="picker == 'time' || picker == 'datetime'" [style.paddingTop.px]="picker == 'datetime' ? 29 : 0">
+                    <button (click)="view = 'time';view='hour'" class="{{view == 'hour' ? 'active' : ''}}">{{getFormated('hh')}}</button>
+                    <span>:</span>
+                    <button (click)="view = 'time';view='minute'" class="{{view == 'minute'? 'active' : ''}}">{{getFormated('mm')}}</button>
+                    <div>
+                        <button class="{{isCurrent('am','ampm') ? 'active' : ''}}" (click)="setAmPm('AM')">AM</button>
+                        <button class="{{isCurrent('pm','ampm') ? 'active' : ''}}" (click)="setAmPm('PM')">PM</button>
+                    </div>
+                </div>
+
+
+                <div class="datepicker-header-label-time" *ngIf="picker == 'duration'" [style.paddingTop.px]="29">
+                    <button *ngIf="hours" (click)="view = 'duration';view='hours'" class="{{view == 'hours' ? 'active' : ''}}">
+                        <span>H</span>
+                        {{duration.hours}}
+                    </button>
+                    <span *ngIf="hours && minutes">:</span>
+                    <button *ngIf="minutes" (click)="view = 'duration';view='minutes'" class="{{view == 'minutes'? 'active' : ''}}">
+                        <span>M</span>
+                        {{duration.minutes}}</button>
+                    <span *ngIf="minutes && seconds">:</span>
+                    <button *ngIf="seconds" (click)="view = 'duration';view='seconds'" class="{{view == 'seconds'? 'active' : ''}}">
+                        <span>S</span>
+                        {{duration.seconds}}
+                    </button>
+                </div>
+              
+            </div>
+           
+            <div class="datepicker-header-action" *ngIf="(picker == 'date' || picker == 'datetime') && view == 'date'">
+                <button (click)="setPrevMonth()"><i class="fa fa-arrow-left"></i></button>
+                <div>{{getFormated('MMMM DD')}}</div>
+                <button (click)="setNextMonth()"><i class="fa fa-arrow-right"></i></button>
+            </div>
+            <div class="datepicker-header-action" *ngIf="(picker == 'date' || picker == 'datetime' || picker == 'year') && view == 'year'">
+                <button (click)="setPrevYearRange()"><i class="fa fa-arrow-left"></i></button>
+                <div>{{config.startYear - 8}} - {{config.startYear + 7}}</div>
+                <button (click)="setNextYearRange()"><i class="fa fa-arrow-right"></i></button>
+            </div>
+        </div>
+        <div class="datepicker-body">
+            <div class="datepicker-datepicker" *ngIf="view == 'date' && (picker == 'date' || picker == 'datetime')">
+                <ul class="datepicker-weeks">
+                    <li *ngFor="let week of config.weeks">
+                        <span>{{limitChar(week,3)}}</span>
+                    </li>
+                </ul>
+                
+                <ul class="datepicker-dates">
+                    <li *ngFor="let d of getPrefixDays()">
+                        <span></span>
+                    </li>
+                    <li *ngFor="let d of getDatesInMonthArray();trackBy:trackBy" class="{{isCurrent(d.formated,'date') ? 'active' : ''}} {{d.disabled ? 'disabled' : ''}}" (click)="setDate(d);">
+                        <span>{{d.date}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="picker" *ngIf="picker == 'time' || picker == 'datetime'">
+                <span *ngIf="view == 'hour'">Select Hour</span>
+                <ul class="picker-col-3" *ngIf="view == 'hour'">
+                    <li *ngFor="let n of getArrayOf(12);let h = index">
+                        <button class="{{isCurrent(h+1,'hour') ? 'active' : ''}}" (click)="setHour(h+1);">{{h+1}}</button>
+                    </li>
+                </ul>
+                <span *ngIf="view == 'minute'">Select minute</span>
+                <ul class="picker-col-6" *ngIf="view == 'minute'">
+                    <li *ngFor="let n of getArrayOf(60);let m = index" class="{{isMonthDisabled(m) ? 'disabled' : ''}}">
+                        <button class="{{isCurrent(m,'minute') ? 'active' : ''}}" (click)="setMinute(m)">{{m}}</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="picker" *ngIf="picker == 'duration'">
+                <span *ngIf="view == 'hours'">Select Hours</span>
+                <ul class="picker-col-6" *ngIf="view == 'hours'">
+                    <li *ngFor="let n of getArrayOf(25);let h = index">
+                        <button class="{{h == duration.hours ? 'active' : ''}}" (click)="setDurationHours(h)">{{h}}</button>
+                    </li>
+                </ul>
+                <span *ngIf="view == 'minutes'">Select Minutes</span>
+                <ul class="picker-col-6" *ngIf="view == 'minutes'">
+                    <li *ngFor="let n of getArrayOf(60);let m = index">
+                        <button class="{{m == duration.minutes ? 'active' : ''}}" (click)="setDurationMinutes(m)">{{m}}</button>
+                    </li>
+                </ul>
+                <span *ngIf="view == 'seconds'">Select Seconds</span>
+                <ul class="picker-col-6" *ngIf="view == 'seconds'">
+                    <li *ngFor="let n of getArrayOf(60);let s = index">
+                        <button class="{{s == duration.seconds ? 'active' : ''}}" (click)="setDurationSeconds(s)">{{s}}</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="picker" *ngIf="view == 'month' || picker == 'month'">
+                <div class="disabled-mask" *ngIf="allMonthsDisabled()">
+                    <small>{{getDisableMaskLabel().label}}</small>
+                    <span>{{getDisableMaskLabel().range}}</span>
+                </div>
+                <ul class="picker-col-2">
+                    <li *ngFor="let month of config.months;let m = index" class="{{isMonthDisabled(m) ? 'disabled' : ''}}">
+                        <button (click)="setMonth(m);" class="{{isCurrent(m+1 + '','month') ? 'active' : ''}}">{{month}}</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="picker" *ngIf="view == 'year'  || picker == 'year'">
+                <div class="disabled-mask" *ngIf="allYearRangeDisabled()">
+                    <small>{{getDisableMaskLabel().label}}</small>
+                    <span>{{getDisableMaskLabel().range}}</span>
+                </div>
+                <ul class="picker-col-4">
+                    <li *ngFor="let year of getYearsRange()" class="{{isYearDisabled(year) ? 'disabled' : ''}}">
+                        <button class="{{isCurrent(year,'year') ? 'active' : ''}}" (click)="setYear(year);">{{year}}</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="datepicker-footer">
+            <button (click)="closeDatePicker()">Cancel</button>
+            <button (click)="apply()">Apply</button>
+        </div>
+    </div>
+</div>

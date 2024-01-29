@@ -1,0 +1,35 @@
+import { AfterViewInit, ComponentRef, ElementRef, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewContainerRef } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
+import { DittoComponent } from './ditto/ditto.component';
+import * as i0 from "@angular/core";
+export declare class DittoDirective implements ControlValueAccessor, OnInit, AfterViewInit, OnDestroy, OnChanges {
+    private cRef;
+    private eRef;
+    constructor(cRef: ViewContainerRef, eRef: ElementRef);
+    format: string;
+    picker: 'date' | 'time' | 'datetime' | 'duration' | 'month' | 'year';
+    hours: boolean;
+    minutes: boolean;
+    seconds: boolean;
+    backDateTime: string;
+    futureDateTime: string;
+    disableBackDateTime: boolean;
+    disableFutureDateTime: boolean;
+    component: ComponentRef<DittoComponent>;
+    initiated: boolean;
+    ngOnDestroy(): void;
+    setView(): void;
+    ngOnChanges(changes: SimpleChanges): void;
+    ngAfterViewInit(): void;
+    ngOnInit(): void;
+    _value: string;
+    get value(): string;
+    set value(value: string);
+    onChange: (_: any) => void;
+    onTouched: (_: any) => void;
+    writeValue(value: any): void;
+    registerOnChange(fn: any): void;
+    registerOnTouched(fn: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<DittoDirective, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<DittoDirective, "[ditto]", never, { "format": { "alias": "format"; "required": false; }; "picker": { "alias": "picker"; "required": false; }; "hours": { "alias": "hours"; "required": false; }; "minutes": { "alias": "minutes"; "required": false; }; "seconds": { "alias": "seconds"; "required": false; }; "backDateTime": { "alias": "backDateTime"; "required": false; }; "futureDateTime": { "alias": "futureDateTime"; "required": false; }; "disableBackDateTime": { "alias": "disableBackDateTime"; "required": false; }; "disableFutureDateTime": { "alias": "disableFutureDateTime"; "required": false; }; }, {}, never, never, false, never>;
+}

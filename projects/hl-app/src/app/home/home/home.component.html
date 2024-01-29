@@ -1,20 +1,17 @@
 <app-header></app-header>
 
-<div class="container">
-    <img src="/assets/image/banner.jpg" class="w-100">
-</div>
-
-
-
-<div class="container">
+<div class="container mb-3">
     <div class="row mt-5">
+        <div class="col-lg-12">
+            <h1>DITTO PICKER</h1>
+        </div>
         <div class="col-lg-4">
             <div class="card mb-3">
                 <div class="card-header">
                     <strong class="m-0">Date & Time Picker</strong>
                 </div>
                 <div class="card-body">
-                    <input type="text" datetimepicker [(ngModel)]="datetime" class="form-control form-control-lg" [format]="'YYYY-MM-DD LT'">
+                    <input type="text" ditto  [(ngModel)]="datetime" class="form-control form-control-lg" [picker]="'datetime'" [format]="'YYYY-MM-DD LT'">
                 </div>
                 <div class="card-footer">
                     <a routerLink="/datepicker/datetime"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
@@ -27,7 +24,7 @@
                     <strong class="m-0">Date Picker only</strong>
                 </div>
                 <div class="card-body">
-                    <input type="text" datepicker [(ngModel)]="date" class="form-control form-control-lg">
+                    <input type="text" ditto [(ngModel)]="date" [picker]="'date'" class="form-control form-control-lg">
                 </div>
                 <div class="card-footer">
                     <a routerLink="/datepicker/date"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
@@ -40,7 +37,7 @@
                     <strong class="m-0">Time Picker only</strong>
                 </div>
                 <div class="card-body">
-                    <input type="text" timepicker [(ngModel)]="time" class="form-control form-control-lg" [format]="'LT'">
+                    <input type="text" ditto [picker]="'time'" [(ngModel)]="time" class="form-control form-control-lg" [format]="'LT'">
                 </div>
                 <div class="card-footer">
                     <a routerLink="/datepicker/time"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
@@ -53,7 +50,7 @@
                     <strong class="m-0">Month Picker</strong>
                 </div>
                 <div class="card-body">
-                    <input type="text" monthpicker [(ngModel)]="month" [format]="'MMMM'" class="form-control form-control-lg">
+                    <input type="text" ditto [picker]="'month'" [(ngModel)]="month" [format]="'MMMM'" class="form-control form-control-lg">
                 </div>
                 <div class="card-footer">
                     <a routerLink="/datepicker/month"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
@@ -66,7 +63,7 @@
                     <strong class="m-0">Year Picker</strong>
                 </div>
                 <div class="card-body">
-                    <input type="text" yearpicker [(ngModel)]="year" class="form-control form-control-lg">
+                    <input type="text" ditto [picker]="'year'" [(ngModel)]="year" class="form-control form-control-lg">
                 </div>
                 <div class="card-footer">
                     <a routerLink="/datepicker/year"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
@@ -74,19 +71,146 @@
             </div>
         </div>
 
-        <div class="col-lg-4">
+
+        <div class="col-lg-6">
             <div class="card mb-3">
-                <div class="card-header">
-                    <strong class="m-0">Love the material UI ?</strong>
+                <div class="card-header d-flex flex-row align-items-center ">
+                    <strong class="m-0">Disable Back Date & Time before  {{backDateTime}}</strong>
+                    <button class="btn btn-floating ms-auto" ditto [(ngModel)]="backDateTime" picker="datetime" format="YYYY-MM-DD LT">
+                        <i class="fa fa-calendar"></i>
+                    </button>
                 </div>
                 <div class="card-body">
-                    <p>Its Material Bootstrap aka MDB!!! </p>
+                    <input type="text" ditto  [(ngModel)]="datetime" class="form-control form-control-lg" [picker]="'datetime'" [disableBackDateTime]="true" [backDateTime]="backDateTime" [format]="'YYYY-MM-DD LT'">
                 </div>
                 <div class="card-footer">
-                    <a href="https://mdbootstrap.com/" target="_blank"><i class="fas fa-info-circle me-2"></i>Give it a shot!! mdbootstrap.com</a>
+                    <a routerLink="/datepicker/datetime"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
                 </div>
             </div>
         </div>
+
+        <div class="col-lg-6">
+            <div class="card mb-3">
+                <div class="card-header d-flex flex-row align-items-center ">
+                    <strong class="m-0">Disable Future Date & Time after {{futureDateTime}}</strong>
+                    <button class="btn btn-floating ms-auto" ditto [(ngModel)]="futureDateTime" picker="datetime" format="YYYY-MM-DD LT">
+                        <i class="fa fa-calendar"></i>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <input type="text" ditto  [(ngModel)]="datetime" class="form-control form-control-lg" [picker]="'datetime'" [disableFutureDateTime]="true" [futureDateTime]="futureDateTime" [format]="'YYYY-MM-DD LT'">
+                </div>
+                <div class="card-footer">
+                    <a routerLink="/datepicker/datetime"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-6">
+            <div class="card mb-3">
+                <div class="card-header d-flex flex-row align-items-center ">
+                    <strong class="m-0">Disable Back Date  {{backDate}}</strong>
+                    <button class="btn btn-floating ms-auto" ditto [(ngModel)]="backDate" picker="date">
+                        <i class="fa fa-calendar"></i>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <input type="text" ditto  [(ngModel)]="date" class="form-control form-control-lg" [picker]="'date'" [disableBackDateTime]="true" [backDateTime]="backDate" [format]="'YYYY-MM-DD'">
+                </div>
+                <div class="card-footer">
+                    <a routerLink="/datepicker/datetime"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card mb-3">
+                <div class="card-header d-flex flex-row align-items-center ">
+                    <strong class="m-0">Disable Future Date after {{futureDate}}</strong>
+                    <button class="btn btn-floating ms-auto" ditto [(ngModel)]="futureDate" picker="date">
+                        <i class="fa fa-calendar"></i>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <input type="text" ditto  [(ngModel)]="date" class="form-control form-control-lg" [picker]="'date'" [disableFutureDateTime]="true" [futureDateTime]="futureDate" [format]="'YYYY-MM-DD'">
+                </div>
+                <div class="card-footer">
+                    <a routerLink="/datepicker/datetime"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-lg-6">
+            <div class="card mb-3">
+                <div class="card-header d-flex flex-row align-items-center ">
+                    <strong class="m-0">Disable Back Time before  {{backTime}}</strong>
+                    <button class="btn btn-floating ms-auto" ditto [(ngModel)]="backTime" picker="time" format="'LT'">
+                        <i class="fa fa-clock"></i>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <input type="text" ditto  [(ngModel)]="time" class="form-control form-control-lg" [picker]="'time'" [disableBackDateTime]="true" [backDateTime]="backTime" [format]="'LT'">
+                </div>
+                <div class="card-footer">
+                    <a routerLink="/datepicker/datetime"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card mb-3">
+                <div class="card-header d-flex flex-row align-items-center ">
+                    <strong class="m-0">Disable Future Time after {{futureTime}}</strong>
+                    <button class="btn btn-floating ms-auto" ditto [(ngModel)]="futureTime" picker="time" format="'LT'">
+                        <i class="fa fa-clock"></i>
+                    </button>
+                </div>
+                <div class="card-body">
+                    <input type="text" ditto  [(ngModel)]="time" class="form-control form-control-lg" [picker]="'time'" [disableFutureDateTime]="true" [futureDateTime]="futureTime" [format]="'LT'">
+                </div>
+                <div class="card-footer">
+                    <a routerLink="/datepicker/datetime"><i class="fas fa-info-circle me-2"></i>Read Documentation</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-12">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <strong class="m-0">Duration Picker</strong>
+                </div>
+                <div class="card-body">
+                    <input type="text" ditto [picker]="'duration'" [(ngModel)]="duration" [hours]="enableHours" [minutes]="enableMinutes" [seconds]="enableSeconds"  class="form-control form-control-lg">
+                </div>
+                <div class="card-footer">
+                    <label class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" [(ngModel)]="enableHours"  />
+                        <small class="form-check-label" >Enable Hours</small>
+                      </label>
+                      
+                      <label class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" [(ngModel)]="enableMinutes"/>
+                        <small class="form-check-label">Enable Minutes</small>
+                      </label>
+                      
+                      <label class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch"  [(ngModel)]="enableSeconds" />
+                        <small class="form-check-label">Enable Seconds</small>
+                      </label>
+                </div>
+            </div>
+        </div>
+
+
+     
+
+
+        
     </div>
 </div>
 

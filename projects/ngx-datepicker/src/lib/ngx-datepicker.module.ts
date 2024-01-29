@@ -6,6 +6,7 @@ import { NgxDatetimepickerDirective } from './ngx-datetimepicker.directive';
 import { NgxTimepickerDirective } from './ngx-timepicker.directive';
 import { NgxMonthpickerDirective } from './ngx-monthpicker.directive';
 import { NgxYearpickerDirective } from './ngx-yearpicker.directive';
+import { NgxDurationpickerDirective } from './ngx-durationpicker.directive';
 
 
 
@@ -16,7 +17,8 @@ import { NgxYearpickerDirective } from './ngx-yearpicker.directive';
     NgxDatetimepickerDirective,
     NgxTimepickerDirective,
     NgxMonthpickerDirective,
-    NgxYearpickerDirective
+    NgxYearpickerDirective,
+    NgxDurationpickerDirective
   ],
   imports: [
     CommonModule
@@ -27,7 +29,8 @@ import { NgxYearpickerDirective } from './ngx-yearpicker.directive';
     NgxTimepickerDirective,
     NgxDatetimepickerDirective,
     NgxMonthpickerDirective,
-    NgxYearpickerDirective
+    NgxYearpickerDirective,
+    NgxDurationpickerDirective
   ]
 })
 export class NgxDatepickerModule { }

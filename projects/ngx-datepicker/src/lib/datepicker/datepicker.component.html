@@ -26,7 +26,26 @@
                         <button class="{{isCurrent('pm','ampm') ? 'active' : ''}}" (click)="setAmPm('PM')">PM</button>
                     </div>
                 </div>
+
+
+                <div class="datepicker-header-label-time" *ngIf="config.mode == 'duration'" [style.paddingTop.px]="29">
+                    <button (click)="config.view='durationpicker';config.durationpicker='hours'" class="{{config.durationpicker == 'hours' ? 'active' : ''}}">
+                        <span>H</span>
+                        {{duration.hours}}
+                    </button>
+                    <span>:</span>
+                    <button (click)="config.view='durationpicker';config.durationpicker='minutes'" class="{{config.durationpicker == 'minutes'? 'active' : ''}}">
+                        <span>M</span>
+                        {{duration.minutes}}</button>
+                    <span>:</span>
+                    <button (click)="config.view='durationpicker';config.durationpicker='seconds'" class="{{config.durationpicker == 'seconds'? 'active' : ''}}">
+                        <span>S</span>
+                        {{duration.seconds}}
+                    </button>
+                </div>
+              
             </div>
+           
             <div class="datepicker-header-action" *ngIf="(config.mode == 'date' || config.mode == 'datetime') && config.view == 'datepicker'">
                 <button (click)="setPrevMonth()"><i class="fa fa-arrow-left"></i></button>
                 <div>{{getFormated('MMMM DD')}}</div>
@@ -69,6 +88,28 @@
                     </li>
                 </ul>
             </div>
+
+            <div class="picker" *ngIf="config.mode == 'duration'">
+                <span *ngIf="config.durationpicker == 'hours'">Select Hour</span>
+                <ul class="picker-col-6" *ngIf="config.durationpicker == 'hours'">
+                    <li *ngFor="let n of getArrayOf(25);let h = index">
+                        <button class="{{h == duration.hours ? 'active' : ''}}" (click)="setDurationHours(h)">{{h}}</button>
+                    </li>
+                </ul>
+                <span *ngIf="config.durationpicker == 'minutes'">Select minute</span>
+                <ul class="picker-col-6" *ngIf="config.durationpicker == 'minutes'">
+                    <li *ngFor="let n of getArrayOf(60);let m = index">
+                        <button class="{{m == duration.minutes ? 'active' : ''}}" (click)="setDurationMinutes(m)">{{m}}</button>
+                    </li>
+                </ul>
+                <span *ngIf="config.durationpicker == 'seconds'">Select Seconds</span>
+                <ul class="picker-col-6" *ngIf="config.durationpicker == 'seconds'">
+                    <li *ngFor="let n of getArrayOf(60);let s = index">
+                        <button class="{{s == duration.seconds ? 'active' : ''}}" (click)="setDurationSeconds(s)">{{s}}</button>
+                    </li>
+                </ul>
+            </div>
+
             <div class="picker" *ngIf="config.view == 'monthpicker' || config.mode == 'month'">
                 <ul class="picker-col-2">
                     <li *ngFor="let month of config.months;let m = index">

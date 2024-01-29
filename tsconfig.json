@@ -13,6 +13,9 @@
     "esModuleInterop": true,
     "sourceMap": true,
     "paths": {
+      "ditto": [
+        "./dist/ditto"
+      ],
       "ngx-datepicker": [
         "dist/ngx-datepicker/ngx-datepicker",
         "dist/ngx-datepicker"
